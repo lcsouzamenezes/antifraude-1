@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
+import Modal from '../Modal'
 
 // Generate Order Data
 function createData( id, cartao, valor, combustivel, data, status ) {
@@ -58,11 +59,12 @@ export default function Orders() {
           ))}
         </TableBody>
       </Table>
-      {/* <div className={classes.seeMore}>
-        <Link color="primary" href="#" onClick={preventDefault}>
+      <div className={classes.seeMore}>
+        {/* <Link color="primary" href="#" onClick={preventDefault}>
           See more orders
-        </Link>
-      </div> */}
+        </Link> */}
+        <Modal />
+      </div>
     </React.Fragment>
   );
 }
