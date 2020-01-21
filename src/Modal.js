@@ -42,11 +42,11 @@ export default function AnimatedModal() {
       setOpen(false);
   };
 
-  return (
+  return (    
       <div>
 
           <Button variant="contained" color="secondary" onClick={handleOpen}>
-              Open Animated Modal
+              A validar
           </Button>
 
           <Modal
@@ -85,8 +85,7 @@ export default function AnimatedModal() {
                           variant="outlined"
                         />
                         </div>
-                      </form>
-                      
+                      </form>                      
                   </div>
               </Fade>
           </Modal>

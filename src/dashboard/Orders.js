@@ -7,19 +7,19 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
-import Modal from '../Modal'
+import Modal from '../Modal';
 
 // Generate Order Data
-function createData( id, cartao, valor, combustivel, data, status ) {
-  return {id, cartao, valor, combustivel, data, status};
+function createData( id, cartao, valor, combustivel, data) {
+  return {id, cartao, valor, combustivel, data};
 }
 
 const rows = [
-  createData(0, 'VISA ⠀•••• 3719', 312.44, 'Gasolina', '16 Mar, 2019', 'A validar'),
-  createData(1, 'VISA ⠀•••• 2574', 866.99, 'Gasolina', '16 Mar, 2019', 'A validar'),
-  createData(2, 'MC ⠀•••• 1253'  , 100.81, 'Etanol'  , '16 Mar, 2019', 'A validar'),
-  createData(3, 'AMEX ⠀•••• 2000', 654.39, 'Gasolina', '16 Mar, 2019', 'A validar'),
-  createData(4, 'VISA ⠀•••• 5919', 212.79, 'Diesel'  , '15 Mar, 2019', 'A validar'),
+  createData(0, 'VISA ⠀•••• 3719', 312.44, 'Gasolina', '16 Mar, 2019'),
+  createData(1, 'VISA ⠀•••• 2574', 866.99, 'Gasolina', '16 Mar, 2019'),
+  createData(2, 'MC ⠀•••• 1253'  , 100.81, 'Etanol'  , '16 Mar, 2019'),
+  createData(3, 'AMEX ⠀•••• 2000', 654.39, 'Gasolina', '16 Mar, 2019'),
+  createData(4, 'VISA ⠀•••• 5919', 212.79, 'Diesel'  , '15 Mar, 2019'),
 ];
 
 function preventDefault(event) {
@@ -49,22 +49,16 @@ export default function Orders() {
         </TableHead>
         <TableBody>
           {rows.map(row => (
-            <TableRow key={row.id}>
+            <TableRow key={row.id}>              
               <TableCell>{row.cartao}</TableCell>
               <TableCell>{row.valor}</TableCell>
               <TableCell>{row.combustivel}</TableCell>
               <TableCell>{row.data}</TableCell>
-              <TableCell align="right">{row.status}</TableCell>
+              <TableCell align="right"><Modal /></TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-      <div className={classes.seeMore}>
-        {/* <Link color="primary" href="#" onClick={preventDefault}>
-          See more orders
-        </Link> */}
-        <Modal />
-      </div>
     </React.Fragment>
   );
 }
