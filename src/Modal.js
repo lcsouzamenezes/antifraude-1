@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function AnimatedModal() {
+export default function AnimatedModal(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -40,6 +40,14 @@ export default function AnimatedModal() {
 
   const handleClose = () => {
       setOpen(false);
+  };
+
+  const handleFraude = () => {
+    props.statusVenda(props.mId,1);
+  };
+
+  const handleFiel = () => {
+    props.statusVenda(props.mId,2);
   };
 
   return (    
@@ -68,10 +76,10 @@ export default function AnimatedModal() {
                           Aqui você pode classificar a venda como fraudulenta ou fiel e justificar a sua escolha.
                       </p>
 
-                      <Button className={classes.button} variant="contained" color="primary">
+                      <Button className={classes.button} variant="contained" color="primary" onClick={handleFiel}>
                         Fiel
                       </Button>
-                      <Button variant="contained" color="secondary">
+                      <Button className={classes.button} variant="contained" color="secondary" onClick={handleFraude}>
                         Fraudulenta
                       </Button>
 

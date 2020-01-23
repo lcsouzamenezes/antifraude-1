@@ -190,7 +190,7 @@ export default function Dashboard() {
               <Paper className={classes.paper}>
                 <Orders />
               </Paper>
-            </Grid>
+            </Grid>            
           </Grid>
           <Box pt={4}>
             <Copyright />
