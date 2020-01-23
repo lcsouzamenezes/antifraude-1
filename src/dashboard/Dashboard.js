@@ -185,12 +185,24 @@ export default function Dashboard() {
                 <Deposits />
               </Paper>
             </Grid> */}
-            {/* Recent Orders */}
+            {/* Vendas Suspeitas */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <Orders />
               </Paper>
-            </Grid>            
+            </Grid>    
+            {/* Vendas Fraudulentas */}
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <Orders />
+              </Paper>
+            </Grid>     
+            {/* Vendas Fiéis */}
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <Orders />
+              </Paper>
+            </Grid>             
           </Grid>
           <Box pt={4}>
             <Copyright />

@@ -11,7 +11,13 @@ import Modal from '../Modal';
 
 // Generate Order Data
 function createData( id, cartao, valor, combustivel, data, status){
-  return {id, cartao, valor, combustivel, data, status};  
+  return {id, cartao, valor, combustivel, data, status};
+
+ /**Status da venda pode ser:
+  * 0: sob suspeita de fraude.
+  * 1: fraudulenta.
+  * 2: fiel.
+  */
 }
 
 var rows = [
@@ -22,6 +28,7 @@ var rows = [
   createData(4, 'VISA ⠀•••• 5919', 212.79, 'Diesel'  , '15 Mar, 2019', 0),
 ];
 
+// essa função recebe do modal o status da venda selecionado pelo usuário
 function changeStatus(id, status){
   rows[id].status = status;
 }
@@ -58,6 +65,7 @@ export default function Orders() {
               <TableCell>{row.valor}</TableCell>
               <TableCell>{row.combustivel}</TableCell>
               <TableCell>{row.data}</TableCell>
+              {/* Modal recebe a função que controla o status da venda*/}
               <TableCell align="right"><Modal statusVenda = {changeStatus} mId = {row.id}/></TableCell>
             </TableRow>
           ))}
