@@ -43,16 +43,17 @@ export default function AnimatedModal(props) {
   };
 
   const handleFraude = () => {
-    props.statusVenda(props.mId,1);
+    props.statusVenda(props.vendas.indexOf(props.mId),1);   
+    handleClose();
   };
 
   const handleFiel = () => {
-    props.statusVenda(props.mId,2);
+    props.statusVenda(props.vendas.indexOf(props.mId),2);  
+    handleClose();
   };
 
   return (    
       <div>
-
           <Button variant="contained" color="secondary" onClick={handleOpen}>
               A validar
           </Button>

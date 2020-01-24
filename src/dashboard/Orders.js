@@ -1,36 +1,14 @@
 import React from 'react';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
-import Modal from '../Modal';
+import TabelaVendas from './Table';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
 // Generate Order Data
 function createData( id, cartao, valor, combustivel, data, status){
   return {id, cartao, valor, combustivel, data, status};
-
- /**Status da venda pode ser:
-  * 0: sob suspeita de fraude.
-  * 1: fraudulenta.
-  * 2: fiel.
-  */
-}
-
-var rows = [
-  createData(0, 'VISA ⠀•••• 3719', 312.44, 'Gasolina', '16 Mar, 2019', 0),
-  createData(1, 'VISA ⠀•••• 2574', 866.99, 'Gasolina', '16 Mar, 2019', 0),
-  createData(2, 'MC   ⠀•••• 1253', 100.81, 'Etanol'  , '16 Mar, 2019', 0),
-  createData(3, 'AMEX ⠀•••• 2000', 654.39, 'Gasolina', '16 Mar, 2019', 0),
-  createData(4, 'VISA ⠀•••• 5919', 212.79, 'Diesel'  , '15 Mar, 2019', 0),
-];
-
-// essa função recebe do modal o status da venda selecionado pelo usuário
-function changeStatus(id, status){
-  rows[id].status = status;
 }
 
 function preventDefault(event) {
@@ -41,36 +19,74 @@ const useStyles = makeStyles(theme => ({
   seeMore: {
     marginTop: theme.spacing(3),
   },
+  paper: {
+    padding: theme.spacing(2),
+    display: 'flex',
+    overflow: 'auto',
+    flexDirection: 'column',
+  },
 }));
 
 export default function Orders() {
+
+  //Arrays de vendas são criados aqui para facilitar a manipulação de seus estados. 
+  const [suspeitas, setSuspeitas] = React.useState([
+    createData(0, 'VISA ⠀•••• 3719', 312.44, 'Gasolina', '16 Mar, 2019', 0),
+    createData(1, 'VISA ⠀•••• 2574', 866.99, 'Gasolina', '16 Mar, 2019', 0),
+    createData(2, 'MC   ⠀•••• 1253', 100.81, 'Etanol'  , '16 Mar, 2019', 0),
+    createData(3, 'AMEX ⠀•••• 2000', 654.39, 'Gasolina', '16 Mar, 2019', 0),
+    createData(4, 'VISA ⠀•••• 5919', 212.79, 'Diesel'  , '15 Mar, 2019', 0),
+  ]);
+
+  const [fieis, setFieis] = React.useState([]);
+  const [fraudes, setFraudes] = React.useState([]);
+
+  // essa função recebe do modal o status da venda selecionado pelo usuário e atualiza os arrays
+  function changeStatus(id, status){  
+
+    suspeitas[id].status = status;
+
+    if(status === 1){
+      fraudes.push(suspeitas[id]);
+      setFraudes(Object.values(fraudes));
+      //console.log(fraudes);
+    }
+    else if(status === 2){ 
+      fieis.push(suspeitas[id]);   
+      setFieis(Object.values(fieis));
+     //console.log(fieis);
+    }
+
+    //setFraudes(fraudes);
+    suspeitas.splice(id,1);
+    setSuspeitas(Object.values(suspeitas));  
+    console.log(suspeitas);  
+  }
+
   const classes = useStyles();
-  return (
-    <React.Fragment>
-      <Title>Vendas Suspeitas</Title>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Número do Cartão</TableCell>
-            <TableCell>Valor da Compra</TableCell>
-            <TableCell>Combustível</TableCell>
-            <TableCell>Data</TableCell>
-            <TableCell align="right">Status</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.id}>              
-              <TableCell>{row.cartao}</TableCell>
-              <TableCell>{row.valor}</TableCell>
-              <TableCell>{row.combustivel}</TableCell>
-              <TableCell>{row.data}</TableCell>
-              {/* Modal recebe a função que controla o status da venda*/}
-              <TableCell align="right"><Modal statusVenda = {changeStatus} mId = {row.id}/></TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </React.Fragment>
+  return (    
+    <React.Fragment>       
+      <Grid item xs={12}>
+        <Paper className={classes.paper}>
+          <Title>Vendas Suspeitas</Title>                   
+          <TabelaVendas vendas = {suspeitas} statusVenda = {changeStatus}/>
+        </Paper>
+         
+      </Grid>
+         
+      <Grid item xs={12}>
+        <Paper className={classes.paper}>
+          <Title>Vendas Fraudulentas</Title>
+          <TabelaVendas vendas = {fraudes} statusVenda = {changeStatus}/> 
+        </Paper>       
+      </Grid>
+
+      <Grid item xs={12}>
+        <Paper className={classes.paper}>
+          <Title>Vendas Fiéis</Title>
+          <TabelaVendas vendas = {fieis} statusVenda = {changeStatus}/>  
+        </Paper>        
+      </Grid>        
+    </React.Fragment>    
   );
 }
