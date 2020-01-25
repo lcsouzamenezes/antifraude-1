@@ -22,13 +22,15 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import orange from '@material-ui/core/colors/orange'
+import blue from '@material-ui/core/colors/blue'
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Carla Sanches
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -58,6 +60,7 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    background: orange[800],
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -69,6 +72,7 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     marginRight: 36,
+    
   },
   menuButtonHidden: {
     display: 'none',
@@ -146,7 +150,7 @@ export default function Dashboard() {
             Antifraude
           </Typography>
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={4} color="primary">
               <NotificationsIcon />
             </Badge>
           </IconButton>

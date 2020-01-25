@@ -31,11 +31,11 @@ export default function Orders() {
 
   //Arrays de vendas são criados aqui para facilitar a manipulação de seus estados. 
   const [suspeitas, setSuspeitas] = React.useState([
-    createData(0, 'VISA ⠀•••• 3719', 312.44, 'Gasolina', '16 Mar, 2019', 0),
-    createData(1, 'VISA ⠀•••• 2574', 866.99, 'Gasolina', '16 Mar, 2019', 0),
+    createData(0, 'VISA ⠀•••• 3719', 112.44, 'Gasolina', '16 Mar, 2019', 0),
+    createData(1, 'VISA ⠀•••• 2574', 53.99, 'Gasolina', '16 Mar, 2019', 0),
     createData(2, 'MC   ⠀•••• 1253', 100.81, 'Etanol'  , '16 Mar, 2019', 0),
-    createData(3, 'AMEX ⠀•••• 2000', 654.39, 'Gasolina', '16 Mar, 2019', 0),
-    createData(4, 'VISA ⠀•••• 5919', 212.79, 'Diesel'  , '15 Mar, 2019', 0),
+    createData(3, 'AMEX ⠀•••• 2000', 30.39, 'Gasolina', '16 Mar, 2019', 0),
+    createData(4, 'VISA ⠀•••• 5919', 112.79, 'Diesel'  , '15 Mar, 2019', 0),
   ]);
 
   const [fieis, setFieis] = React.useState([]);

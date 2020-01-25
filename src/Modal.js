@@ -54,7 +54,7 @@ export default function AnimatedModal(props) {
 
   return (    
       <div>
-          <Button variant="contained" color="secondary" onClick={handleOpen}>
+          <Button variant="contained" color="primary" onClick={handleOpen}>
               A validar
           </Button>
 

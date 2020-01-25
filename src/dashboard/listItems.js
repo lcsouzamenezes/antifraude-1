@@ -7,7 +7,9 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
+import ResgatesIcon from '@material-ui/icons/ReplySharp'
+import AntifraudeIcon from '@material-ui/icons/WorkSharp'
+import CampanhasIcon from '@material-ui/icons/SettingsInputAntennaSharp';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 
 export const mainListItems = (
@@ -20,13 +22,13 @@ export const mainListItems = (
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <ResgatesIcon />
       </ListItemIcon>
       <ListItemText primary="Resgates" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <AntifraudeIcon />
       </ListItemIcon>
       <ListItemText primary="Antifraude" />
     </ListItem>
@@ -50,7 +52,7 @@ export const mainListItems = (
     </ListItem>   
     <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <CampanhasIcon />
       </ListItemIcon>
       <ListItemText primary="Campanhas" />
     </ListItem>
