@@ -7,8 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
 // Generate Order Data
-function createData( id, cartao, valor, combustivel, data, status){
-  return {id, cartao, valor, combustivel, data, status};
+function createData( id, cartao, valor, combustivel, quantidade, data, status){
+  return {id, cartao, valor, combustivel, quantidade, data, status};
 }
 
 function preventDefault(event) {
@@ -31,11 +31,11 @@ export default function Orders() {
 
   //Arrays de vendas são criados aqui para facilitar a manipulação de seus estados. 
   const [suspeitas, setSuspeitas] = React.useState([
-    createData(0, 'VISA ⠀•••• 3719', 112.44, 'Gasolina', '16 Mar, 2019', 0),
-    createData(1, 'VISA ⠀•••• 2574', 53.99, 'Gasolina', '16 Mar, 2019', 0),
-    createData(2, 'MC   ⠀•••• 1253', 100.81, 'Etanol'  , '16 Mar, 2019', 0),
-    createData(3, 'AMEX ⠀•••• 2000', 30.39, 'Gasolina', '16 Mar, 2019', 0),
-    createData(4, 'VISA ⠀•••• 5919', 112.79, 'Diesel'  , '15 Mar, 2019', 0),
+    createData(0, 'VISA ⠀•••• 3719', 123.0, 'Gasolina', 30.0, '16 Mar, 2019', 0),
+    createData(1, 'VISA ⠀•••• 2574', 108.10, 'Gasolina', 26.365, '16 Mar, 2019', 0),
+    createData(2, 'MC   ⠀•••• 1253', 70.37, 'Etanol'  , 18.52 , '16 Mar, 2019', 0),
+    createData(3, 'AMEX ⠀•••• 2000', 41.0, 'Gasolina', 10.0, '16 Mar, 2019', 0),
+    createData(4, 'VISA ⠀•••• 5919', 180.60, 'Diesel' , 58.26,'15 Mar, 2019', 0),
   ]);
 
   const [fieis, setFieis] = React.useState([]);
@@ -43,7 +43,7 @@ export default function Orders() {
 
   // essa função recebe do modal o status da venda selecionado pelo usuário e atualiza os arrays
   function changeStatus(id, status){  
-
+    
     suspeitas[id].status = status;
 
     if(status === 1){

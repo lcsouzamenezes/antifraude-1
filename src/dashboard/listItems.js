@@ -11,8 +11,10 @@ import ResgatesIcon from '@material-ui/icons/ReplySharp'
 import AntifraudeIcon from '@material-ui/icons/WorkSharp'
 import CampanhasIcon from '@material-ui/icons/SettingsInputAntennaSharp';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import orange from '@material-ui/core/colors/orange';
 
 export const mainListItems = (
+
   <div>
     <ListItem button>
       <ListItemIcon>
@@ -26,8 +28,8 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Resgates" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
+    <ListItem button selected="true" >
+      <ListItemIcon style={{color: orange[600]}}>
         <AntifraudeIcon />
       </ListItemIcon>
       <ListItemText primary="Antifraude" />

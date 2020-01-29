@@ -5,6 +5,7 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import TextField from '@material-ui/core/TextField';
+import orange from '@material-ui/core/colors/orange'
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -21,6 +22,10 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     margin: 15,
+  },
+  modalButton: {
+    color: orange[600],
+    borderColor: orange[600],
   },
   root: {
     '& .MuiTextField-root': {
@@ -54,7 +59,7 @@ export default function AnimatedModal(props) {
 
   return (    
       <div>
-          <Button variant="contained" color="primary" onClick={handleOpen}>
+          <Button variant="outlined" onClick={handleOpen} className={classes.modalButton}>
               A validar
           </Button>
 

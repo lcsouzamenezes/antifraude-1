@@ -21,6 +21,7 @@ export default function TabelaVendas(props){
             <TableCell>Número do Cartão</TableCell>
             <TableCell>Valor da Compra</TableCell>
             <TableCell>Combustível</TableCell>
+            <TableCell>Quantidade (L)</TableCell>
             <TableCell>Data</TableCell>
             <TableCell align="right">Status</TableCell>
           </TableRow>
@@ -31,6 +32,7 @@ export default function TabelaVendas(props){
               <TableCell>{row.cartao}</TableCell>
               <TableCell>{row.valor}</TableCell>
               <TableCell>{row.combustivel}</TableCell>
+              <TableCell>{row.quantidade}</TableCell>
               <TableCell>{row.data}</TableCell>
               {/* Modal recebe a função que controla o status da venda*/}  
               <TableCell align="right">{row.status === 0 ? <Modal statusVenda = {props.statusVenda} mId = {row} vendas = {rows}/> : 'Venda validada'}</TableCell>              

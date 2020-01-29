@@ -23,7 +23,6 @@ import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
 import orange from '@material-ui/core/colors/orange'
-import blue from '@material-ui/core/colors/blue'
 
 function Copyright() {
   return (
@@ -45,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
   },
   toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
+    paddingRight: 24, // keep right padding when drawer closed    
   },
   toolbarIcon: {
     display: 'flex',
@@ -60,7 +59,7 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    background: orange[800],
+    background: 'white',
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -72,7 +71,7 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     marginRight: 36,
-    
+    color: 'black',
   },
   menuButtonHidden: {
     display: 'none',
@@ -139,18 +138,18 @@ export default function Dashboard() {
         <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
-            color="inherit"
+            style={{color: orange[600]}}
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
           >
             <MenuIcon />
           </IconButton>
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+          <Typography component="h1" variant="h6" color="textPrimary" noWrap className={classes.title}>
             Antifraude
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="primary">
+          <IconButton color="black">
+            <Badge badgeContent={4} color={"secondary"}>
               <NotificationsIcon />
             </Badge>
           </IconButton>
