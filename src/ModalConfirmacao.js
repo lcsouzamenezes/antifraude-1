@@ -57,11 +57,13 @@ export default function AnimatedModal(props) {
   };
 
   const handleFraude = () => {
+    //vendas são removidas de acordo com o retorno do seu índice
     props.statusVenda(props.vendas.indexOf(props.mId),1);   
     handleCloseFraude();
   };
 
   const handleFiel = () => {
+    //vendas são removidas de acordo com o retorno do seu índice
     props.statusVenda(props.vendas.indexOf(props.mId),2);  
     handleCloseFiel();
   };

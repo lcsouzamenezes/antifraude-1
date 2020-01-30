@@ -49,18 +49,33 @@ export default function Orders() {
     if(status === 1){
       fraudes.push(suspeitas[id]);
       setFraudes(Object.values(fraudes));
-      //console.log(fraudes);
     }
     else if(status === 2){ 
       fieis.push(suspeitas[id]);   
       setFieis(Object.values(fieis));
-     //console.log(fieis);
     }
 
-    //setFraudes(fraudes);
     suspeitas.splice(id,1);
     setSuspeitas(Object.values(suspeitas));  
-    console.log(suspeitas);  
+  }
+
+  function undoStatus(id, status){
+    if(status === 1){
+      fraudes[id].status = 0;
+      suspeitas.push(fraudes[id]);
+      setSuspeitas(Object.values(suspeitas));
+
+      fraudes.splice(id,1);
+      setFraudes(Object.values(fraudes));
+    }
+    else{
+      fieis[id].status = 0;
+      suspeitas.push(fieis[id]);
+      setSuspeitas(Object.values(suspeitas));
+
+      fieis.splice(id,1);
+      setFieis(Object.values(fieis));
+    }
   }
 
   const classes = useStyles();
@@ -77,14 +92,14 @@ export default function Orders() {
       <Grid item xs={12}>
         <Paper className={classes.paper}>
           <Title>Vendas Fraudulentas</Title>
-          <TabelaVendas vendas = {fraudes} statusVenda = {changeStatus}/> 
+          <TabelaVendas vendas = {fraudes} statusVenda = {changeStatus} funcaoUndo={undoStatus}/> 
         </Paper>       
       </Grid>
 
       <Grid item xs={12}>
         <Paper className={classes.paper}>
           <Title>Vendas Fiéis</Title>
-          <TabelaVendas vendas = {fieis} statusVenda = {changeStatus}/>  
+          <TabelaVendas vendas = {fieis} statusVenda = {changeStatus} funcaoUndo={undoStatus}/>  
         </Paper>        
       </Grid>        
     </React.Fragment>    

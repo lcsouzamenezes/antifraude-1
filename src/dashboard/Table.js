@@ -5,6 +5,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Modal from '../Modal';
+import ModalDesfazer from '../ModalDesfazer'
 
 var rows = [];
 
@@ -35,7 +36,9 @@ export default function TabelaVendas(props){
               <TableCell>{row.quantidade}</TableCell>
               <TableCell>{row.data}</TableCell>
               {/* Modal recebe a função que controla o status da venda*/}  
-              <TableCell align="right">{row.status === 0 ? <Modal statusVenda = {props.statusVenda} mId = {row} vendas = {rows}/> : 'Venda validada'}</TableCell>              
+              <TableCell align="right">{row.status === 0 ? <Modal statusVenda = {props.statusVenda} mId = {row} vendas = {rows}/> : 
+                                                            <ModalDesfazer statusVenda={row.status} funcaoUndo={props.funcaoUndo} mId = {row} vendas = {rows}/>}
+              </TableCell>              
             </TableRow>
           ))}
         </TableBody>
