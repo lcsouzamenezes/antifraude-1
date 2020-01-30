@@ -6,6 +6,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import TextField from '@material-ui/core/TextField';
 import orange from '@material-ui/core/colors/orange'
+import ModalConfirmacao from './ModalConfirmacao'
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -47,16 +48,6 @@ export default function AnimatedModal(props) {
       setOpen(false);
   };
 
-  const handleFraude = () => {
-    props.statusVenda(props.vendas.indexOf(props.mId),1);   
-    handleClose();
-  };
-
-  const handleFiel = () => {
-    props.statusVenda(props.vendas.indexOf(props.mId),2);  
-    handleClose();
-  };
-
   return (    
       <div>
           <Button variant="outlined" onClick={handleOpen} className={classes.modalButton}>
@@ -80,14 +71,7 @@ export default function AnimatedModal(props) {
                       <h2>Classificação da Venda</h2>
                       <p>
                           Aqui você pode classificar a venda como fraudulenta ou fiel e justificar a sua escolha.
-                      </p>
-
-                      <Button className={classes.button} variant="contained" color="primary" onClick={handleFiel}>
-                        Fiel
-                      </Button>
-                      <Button className={classes.button} variant="contained" color="secondary" onClick={handleFraude}>
-                        Fraudulenta
-                      </Button>
+                      </p>                     
 
                       <form className={classes.root} noValidate autocomplete="off">
                         <div>
@@ -97,9 +81,11 @@ export default function AnimatedModal(props) {
                           placeholder="Justifique sua classificação da venda."
                           multiline
                           variant="outlined"
-                        />
+                        />                        
                         </div>
-                      </form>                      
+                      </form>  
+
+                       <ModalConfirmacao statusVenda={props.statusVenda} vendas={props.vendas} mId={props.mId}/>                    
                   </div>
               </Fade>
           </Modal>

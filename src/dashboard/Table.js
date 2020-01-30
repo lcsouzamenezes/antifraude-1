@@ -41,10 +41,5 @@ export default function TabelaVendas(props){
         </TableBody>
       </Table>
         </React.Fragment>
-        
-    );
-      
-    
-      
+    );     
 }
-
