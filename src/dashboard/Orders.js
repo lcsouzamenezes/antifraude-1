@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Title from './Title';
 import TabelaVendas from './Table';
@@ -9,10 +8,6 @@ import Paper from '@material-ui/core/Paper';
 // Generate Order Data
 function createData( id, cartao, valor, combustivel, quantidade, data, status){
   return {id, cartao, valor, combustivel, quantidade, data, status};
-}
-
-function preventDefault(event) {
-  event.preventDefault();
 }
 
 const useStyles = makeStyles(theme => ({
