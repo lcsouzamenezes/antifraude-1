@@ -13,27 +13,27 @@ Abra [http://localhost:3000](http://localhost:3000) para ver no Browser.
 
 Após iniciar a aplicação a seguinte tela será exibida:
 
-![](img/01 - Tela Inicial.png)
+![Tela Inicial](img/01.png)
 
 Ao clicar no botão do status de uma venda, é possível classificá-la:
 
-![](/img/02 - Modal de Classificação da Venda.png)
+![Modal de Classificação da Venda](/img/02.png)
 
 Em seguida o sistema pede uma confirmação de acordo com a classificação:
 
-![](/img/03 - Modal de Confirmação 1.png)
+![Modal de Confirmação 1](/img/03.png)
 
 As vendas classificadas são inseridas em suas respectivas tabelas:
 
-![](/img/04 - Tela Vendas Classificadas.png)
+![Tela Vendas Classificadas](/img/04.png)
 
 É possível desfazer uma classificação clicando no botão de status:
 
-![](/img/05 - Modal de Confirmação 2.png)
+![Modal de Confirmação 2](/img/05.png)
 
 A venda, então, volta a ser suspeita:
 
-![](/img/06 - Classificação Desfeita.png)
+![Classificação Desfeita](/img/06.png)
 
 
 ### Versões de recursos utilizados
