@@ -13,7 +13,7 @@ Abra [http://localhost:3000](http://localhost:3000) para ver no Browser.
 
 Após iniciar a aplicação a seguinte tela será exibida:
 
-![](/img/01 - Tela Inicial.png)
+![](img/01 - Tela Inicial.png)
 
 Ao clicar no botão do status de uma venda, é possível classificá-la:
 
