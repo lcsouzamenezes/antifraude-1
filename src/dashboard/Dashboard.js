@@ -36,6 +36,7 @@ function Copyright() {
 
 const drawerWidth = 240;
 
+//Estilos de componentes
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',

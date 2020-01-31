@@ -51,6 +51,7 @@ export default function AnimatedModal(props) {
       setOpen(false);
   };
 
+  //essa função chama a função "undoStatus" dentro de "Orders", possibilitando o usuário desfazer a classificação.
   const handleUndo = () => {
       props.funcaoUndo(props.vendas.indexOf(props.mId), props.statusVenda);
       handleClose();

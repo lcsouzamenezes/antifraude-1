@@ -39,6 +39,8 @@ export default function AnimatedModal(props) {
   const [openFiel, setOpenFiel] = React.useState(false);
   const [openFraude, setOpenFraude] = React.useState(false);
 
+/*   Foi necessário criar estados separados para cada modal que será exibido: um para vendas consideradas
+     fiéis e outro para vendas fraudulentas.*/
   const handleOpenFiel = () => {
       setOpenFiel(true);
   };

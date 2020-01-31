@@ -36,7 +36,7 @@ export default function Orders() {
   const [fieis, setFieis] = React.useState([]);
   const [fraudes, setFraudes] = React.useState([]);
 
-  // essa função recebe do modal o status da venda selecionado pelo usuário e atualiza os arrays
+  // essa função recebe do "Modal Confirmação" o status da venda selecionado pelo usuário e atualiza os arrays
   function changeStatus(id, status){  
     
     suspeitas[id].status = status;
@@ -54,6 +54,8 @@ export default function Orders() {
     setSuspeitas(Object.values(suspeitas));  
   }
 
+  /*Essa função recebe do "Modal Desfazer" o status de cada venda classificada e retorna as vendas
+    classificadas para o array de vendas suspeitas.*/
   function undoStatus(id, status){
     if(status === 1){
       fraudes[id].status = 0;

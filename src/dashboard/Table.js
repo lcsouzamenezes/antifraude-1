@@ -35,7 +35,9 @@ export default function TabelaVendas(props){
               <TableCell>{row.combustivel}</TableCell>
               <TableCell>{row.quantidade}</TableCell>
               <TableCell>{row.data}</TableCell>
-              {/* Modal recebe a função que controla o status da venda*/}  
+              {/* Modais recebem as funçoes que controlam os status das vendas e outros parâmetros necessários.
+                  O acesso ao modal é disponibilizado de acordo com a classificação da venda, para que seja possível
+                  classificá-la ou desfazer a ação.*/}  
               <TableCell align="right">{row.status === 0 ? <Modal statusVenda = {props.statusVenda} mId = {row} vendas = {rows}/> : 
                                                             <ModalDesfazer statusVenda={row.status} funcaoUndo={props.funcaoUndo} mId = {row} vendas = {rows}/>}
               </TableCell>              

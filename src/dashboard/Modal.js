@@ -84,7 +84,7 @@ export default function AnimatedModal(props) {
                         />                        
                         </div>
                       </form>  
-
+                        {/* Uma mensagem de confirmação é aberta para o usuário ter certeza da classificação selecionada.*/}
                        <ModalConfirmacao statusVenda={props.statusVenda} vendas={props.vendas} mId={props.mId}/>                    
                   </div>
               </Fade>
